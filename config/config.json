@@ -3,21 +3,18 @@
     "username": null,
     "password": null,
     "database": "db/library.db",
-    "host": "127.0.0.1",
     "dialect": "sqlite"
   },
   "test": {
     "username": null,
     "password": null,
     "database": "db/library.db",
-    "host": "127.0.0.1",
     "dialect": "sqlite"
   },
   "production": {
     "username": null,
     "password": null,
     "database": "db/library.db",
-    "host": "127.0.0.1",
     "dialect": "sqlite"
   }
 }
