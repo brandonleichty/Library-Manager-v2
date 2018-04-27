@@ -1,20 +1,14 @@
 {
   "development": {
-    "username": null,
-    "password": null,
-    "database": "db/library.db",
-    "dialect": "sqlite"
+    "dialect": "sqlite",
+    "storage": "db/library.db"
   },
   "test": {
-    "username": null,
-    "password": null,
-    "database": "db/library.db",
-    "dialect": "sqlite"
+    "dialect": "sqlite",
+    "storage": "db/library.db"
   },
   "production": {
-    "username": null,
-    "password": null,
-    "database": "db/library.db",
-    "dialect": "sqlite"
+    "dialect": "sqlite",
+    "storage": "db/library.db"
   }
 }
