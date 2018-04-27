@@ -1,23 +1,23 @@
 {
   "development": {
-    "username": "root",
+    "username": null,
     "password": null,
-    "database": "database_development",
+    "database": "db/library.db",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "sqlite"
   },
   "test": {
-    "username": "root",
+    "username": null,
     "password": null,
-    "database": "database_test",
+    "database": "db/library.db",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "sqlite"
   },
   "production": {
-    "username": "root",
+    "username": null,
     "password": null,
-    "database": "database_production",
+    "database": "db/library.db",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "sqlite"
   }
 }
