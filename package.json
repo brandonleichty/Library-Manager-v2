@@ -1,0 +1,19 @@
+{
+  "name": "library-manager-v2",
+  "version": "1.0.0",
+  "description": "A library manager that uses Node, Express, and Sequelize. This project is for the Treehouse Full-Stack JavaScript Techdegree.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brandonleichty/library-manager-v2.git"
+  },
+  "author": "Brandon Leichty",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brandonleichty/library-manager-v2/issues"
+  },
+  "homepage": "https://github.com/brandonleichty/library-manager-v2#readme"
+}
