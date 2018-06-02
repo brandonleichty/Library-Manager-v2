@@ -137,10 +137,26 @@ router.post('/details/:id', (req, res, next) => {
     })
     .catch((err) => { // handle validation errors
       if (err.name === 'SequelizeValidationError') {
-        let book = Book.build(req.body);
-        renderUpdateBookDetails(res, book, err);
-      } else res.send(500);
-    });
+        Book.findById(req.params.id, {
+          include: [{
+            model: Loan,
+            include: [{
+              model: Patron
+            }]
+          }]
+        }).then(function (results) {
+          if (results) {
+            res.render('book_details', {
+              book: results,
+              title: results.title,
+              errors: err.errors,
+            });
+          } else {
+            res.sendStatus(404);
+          }
+        })
+      }
+    })
 });
 
 
