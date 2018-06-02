@@ -12,7 +12,7 @@ const Patron = require('../models').Patron;
 
 
 
-
+// Get all patrons
 router.get('/', (req, res, next) => {
 
   Patron.findAndCountAll()
@@ -24,7 +24,7 @@ router.get('/', (req, res, next) => {
     });
 });
 
-// New Patron 
+// New patron
 router.get('/new_patron', (req, res) => {
   try {
     res.render('new_patron', {
@@ -37,7 +37,7 @@ router.get('/new_patron', (req, res) => {
 });
 
 
-// Create a new Patron
+// Create a new patron
 router.post('/new_patron', (req, res) => {
   Patron.create(req.body)
     .then(patron => {
@@ -58,7 +58,6 @@ router.post('/new_patron', (req, res) => {
 
 
 // Get patron details
-
 router.get('/details/:id', (req, res, next) => {
 
   Patron.findById(req.params.id)
@@ -79,8 +78,7 @@ router.get('/details/:id', (req, res, next) => {
 });
 
 
-// Edit Patron details 
-
+// Edit patron details
 router.post('/details/:id', (req, res) => {
 
   Patron.findById(req.params.id)
@@ -92,12 +90,6 @@ router.post('/details/:id', (req, res) => {
     })
     .catch((err) => { // handle validation errors
       if (err.name === 'SequelizeValidationError') {
-        //   res.render('patron_details', {
-        //   patron: Patron.build(req.body),
-        //   pageTitle: 'Patron Details',
-        //   errors: err.errors,
-        //   loans
-        // });
         Patron.findById(req.params.id)
           .then((patron) => {
             Loan.findAll({

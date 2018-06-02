@@ -10,7 +10,7 @@ const Patron = require('../models').Patron;
 
 
 
-
+// Get all loans
 router.get('/', function (req, res, next) {
 
   Loan.findAll({
@@ -26,7 +26,7 @@ router.get('/', function (req, res, next) {
 
 
 
-/** GET return book form page. */
+// Return book form page
 router.get('/return/:id', async (req, res) => {
   const loan = await Loan.findById(req.params.id);
   const [book, patron] = await Promise.all([Book.findById(loan.book_id), Patron.findById(loan.patron_id)]);
@@ -45,7 +45,7 @@ router.get('/return/:id', async (req, res) => {
 
 
 
-
+// Return loan
 router.post('/return/:id', (req, res, next) => {
 
   Loan.findById(req.params.id)
@@ -53,7 +53,7 @@ router.post('/return/:id', (req, res, next) => {
       return loan.update(req.body);
     })
     .then((loan) => { // redirect to loan listing page
-      res.redirect('/books');
+      res.redirect('/loans');
     })
     .catch((err) => { // handle any errors
       if (err.name === 'SequelizeValidationError') {
@@ -64,7 +64,6 @@ router.post('/return/:id', (req, res, next) => {
 
 
 // Get overdue loans
-
 router.get('/overdue_loans', function (req, res, next) {
   Loan.findAll({
       include: [Book, Patron],
@@ -105,7 +104,6 @@ router.get('/checked_loans', (req, res) => {
 
 
 // New loan
-
 router.get('/new_loan', (req, res) => {
 
   const loan = Loan.build({
@@ -129,6 +127,8 @@ router.get('/new_loan', (req, res) => {
         });
     });
 });
+
+
 
 // Save new loan
 router.post('/new_loan', (req, res) => {

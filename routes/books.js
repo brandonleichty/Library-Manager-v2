@@ -7,7 +7,7 @@ const Book = require('../models').Book;
 const Loan = require('../models').Loan;
 const Patron = require('../models').Patron;
 
-// get all books 
+// Get all books
 router.get('/', (req, res) => {
   Book.findAndCountAll()
     .then((bookResults) => {
@@ -20,8 +20,7 @@ router.get('/', (req, res) => {
 
 
 
-// Display checked out books: 
-
+// Display checked out books:
 router.get('/checked_out', (req, res, next) => {
 
   Book.findAll({
@@ -46,7 +45,7 @@ router.get('/checked_out', (req, res, next) => {
 
 
 
-// overdue books
+// Overdue books
 router.get('/overdue_books', (req, res, next) => {
 
   Book.findAll({
@@ -68,10 +67,9 @@ router.get('/overdue_books', (req, res, next) => {
 });
 
 
-// new book GET route
+// Get new book route
 
 router.get('/new_book', (req, res) => {
-  console.log('💩💩💩💩💩💩')
   res.render('new_book', {
     book: Book.build(),
     pageTitle: 'New book'
@@ -79,7 +77,7 @@ router.get('/new_book', (req, res) => {
 });
 
 
-// new book POST route
+// New book
 
 router.post('/new_book', (req, res) => {
   Book.create(req.body)
@@ -103,7 +101,7 @@ router.post('/new_book', (req, res) => {
 });
 
 
-/** GET book detail page */
+// Get book details page
 router.get('/details/:id', function (req, res, next) {
   Book.findById(req.params.id, {
     include: [{
@@ -127,15 +125,7 @@ router.get('/details/:id', function (req, res, next) {
 
 
 
-
-
-
-
-/**
- * POST save book details
- * /books/details/:id
- */
-
+// Post edited book details
 router.post('/details/:id', (req, res, next) => {
 
   Book.findById(req.params.id)
@@ -155,7 +145,7 @@ router.post('/details/:id', (req, res, next) => {
 
 
 
-/** PUT return book. */
+// Return book
 router.put('/details/:id/return', function (req, res, next) {
 
   console.log('YAYYYY');

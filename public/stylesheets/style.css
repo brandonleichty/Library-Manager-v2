@@ -1,11 +1,13 @@
 body {
   padding: 50px;
-  font: 18px "Garamond", serif;
+  font: 17px "Arvo", serif;
+  font-weight: 400;
 }
+
 a {
   color: #019875;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 400;
 }
   a:hover {
     color: black;
@@ -13,7 +15,7 @@ a {
 a.button, input[type=submit] {
   color: white;
   background: #019875;
-  font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: "Arvo", Helvetica, Arial, sans-serif;
   padding: 10px 14px 12px;
   font-size: 14px;
   border-radius: 2px;
@@ -36,14 +38,19 @@ ul {
   list-style-type: none;
   margin-bottom: 10px;
   line-height: 1.3em;
+  font-weight: 700;
 }
 nav {
   border-bottom: 2px solid #D8B493;
+}
+nav a {
+  font-weight: 700;
 }
 nav ul li {
   display: inline-block;
   list-style: none;
   padding-left: 7px;
+  font-weight: 700;
 }
   nav ul li:after {
     content: " | ";
@@ -67,6 +74,7 @@ tr .button {
   background-color: #4b6a88;
   padding: 4px 8px 5px;
   font-weight: normal;
+  font-size: 14px;
 }
   tr .button:hover {
     background-color: #547798;
@@ -84,7 +92,7 @@ label {
 }
 input {
   padding: 10px;
-  font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: "Arvo", Helvetica, Arial, sans-serif;
   font-size: 14px;
   border-radius: 2px;
   border-color: #E7E7E7;
