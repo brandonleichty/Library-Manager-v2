@@ -41,7 +41,12 @@ router.get('/return/:id', async (req, res) => {
 });
 
 // Return loan
-router.post('/return/:id', (req, res) => {
+router.post('/return/:id', async (req, res) => {
+  const loan = await Loan.findById(req.params.id);
+	const [book, patron] = await Promise.all([
+		Book.findById(loan.book_id),
+		Patron.findById(loan.patron_id)
+  ]);
 
 	Loan.findById(req.params.id)
 		.then(loan => {
@@ -56,6 +61,15 @@ router.post('/return/:id', (req, res) => {
 			// handle any errors
 
 			if (err.name === 'SequelizeValidationError') {
+
+							res.render('return_book', {
+								loan,
+								patron,
+								book,
+								errors: err.errors,
+								title: 'Return book',
+								today: moment().format('YYYY-MM-DD')
+							});
 
 			} else {
 				res.sendStatus(500);
