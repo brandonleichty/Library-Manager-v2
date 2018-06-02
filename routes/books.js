@@ -114,6 +114,7 @@ router.get('/details/:id', function (req, res, next) {
     if (results) {
       res.render('book_details', {
         book: results,
+        loans: results.Loans,
         title: results.title
       });
     } else {
@@ -147,7 +148,8 @@ router.post('/details/:id', (req, res, next) => {
         }).then(function (results) {
           if (results) {
             res.render('book_details', {
-              book: results,
+              book: Book.build(req.body),
+              loans: results.Loans,
               title: results.title,
               errors: err.errors,
             });
