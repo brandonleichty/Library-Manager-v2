@@ -178,7 +178,7 @@ router.put('/details/:id/return', function (req, res, next) {
     res.redirect('/books');
   }).catch((err) => {
     if (err.name === 'SequelizeValidationError') {
-      console.log('poop');
+
     }
   });
 });
